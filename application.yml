@@ -1,0 +1,26 @@
+#cloud:
+#  aws:
+#    credentials:
+#      access-key: AKIAQNGF6K6EXKBT2N4Y
+#      secret-key: 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
+#    region:
+#      static: ap-northeast-2 # AWS SQS의 리전정보
+#    stack:
+#      auto: false
+#    sqs:
+#      queue:
+#        name: aws-learner-sqs-queue	# AWS에서 생성한 Queue 이름
+#        url: https://sqs.ap-northeast-2.amazonaws.com/028332414857/aws-learner-sqs-queue # 생성한 SQS 큐 url
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAQNGF6K6EXKBT2N4Y
+      secret-key: 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
+    region:
+      static: ap-northeast-2 # AWS SQS의 리전정보
+    stack:
+      auto: false
+    sqs:
+      queue:
+        name: aws-learner-sqs-queue_ff.fifo	# AWS에서 생성한 Queue 이름
+        url: https://sqs.ap-northeast-2.amazonaws.com/028332414857/aws-learner-sqs-queue_ff.fifo # 생성한 SQS 큐 url

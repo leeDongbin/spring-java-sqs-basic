@@ -1,0 +1,1 @@
+# spring-java-sqs-basic
