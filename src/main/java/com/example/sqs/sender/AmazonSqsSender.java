@@ -18,12 +18,25 @@ public class AmazonSqsSender {
     @Value("${cloud.aws.sqs.queue.url}")
     private String url;
 
+    @Value("${cloud.aws.sqs.queue.url2}")
+    private String url2;
+
     private final ObjectMapper objectMapper;
     private final AmazonSQS amazonSQS;
 
     public SendMessageResult sendMessage(EcmDto msg) throws JsonProcessingException {
         final String messageGroupId = "live-commerce";
         SendMessageRequest sendMessageRequest = new SendMessageRequest(url,
+                objectMapper.writeValueAsString(msg))
+                .withMessageGroupId(messageGroupId)
+                .withMessageDeduplicationId(UUID.randomUUID().toString());
+
+        return amazonSQS.sendMessage(sendMessageRequest);
+    }
+
+    public SendMessageResult send2Message(EcmDto msg) throws JsonProcessingException {
+        final String messageGroupId = "live-commerce2";
+        SendMessageRequest sendMessageRequest = new SendMessageRequest(url2,
                 objectMapper.writeValueAsString(msg))
                 .withMessageGroupId(messageGroupId)
                 .withMessageDeduplicationId(UUID.randomUUID().toString());

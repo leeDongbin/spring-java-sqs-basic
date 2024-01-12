@@ -23,6 +23,13 @@ public class MainController {
         return "OK";
     }
 
+    @PostMapping("/send2")
+    public String send2(@RequestBody EcmDto message) throws JsonProcessingException {
+        amazonSQSSender.send2Message(message);
+
+        return "OK";
+    }
+
 }
 
 

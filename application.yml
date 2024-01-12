@@ -24,3 +24,5 @@ cloud:
       queue:
         name: aws-learner-sqs-queue_ff.fifo	# AWS에서 생성한 Queue 이름
         url: https://sqs.ap-northeast-2.amazonaws.com/028332414857/aws-learner-sqs-queue_ff.fifo # 생성한 SQS 큐 url
+        name2: aws-learner-sqs-queue_test2_ff.fifo    # AWS에서 생성한 Queue 이름
+        url2: https://sqs.ap-northeast-2.amazonaws.com/028332414857/aws-learner-sqs-queue_test2_ff.fifo # 생성한 SQS 큐 url

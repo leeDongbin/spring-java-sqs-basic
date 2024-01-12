@@ -41,4 +41,14 @@ public class AwsSqsListener {
         ack.acknowledge();
     }
 
+    @SqsListener(value = "${cloud.aws.sqs.queue.name2}", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
+    public void listen2(@Payload String info, @Headers Map<String, String> headers) throws JsonProcessingException {
+        EcmDto readValue = objectMapper.readValue(info, EcmDto.class);
+
+        log.info("-------------------------------------start SqsListener");
+        log.info("-------------------------------------ecmId {}", readValue.getEcmId());
+        log.info("-------------------------------------info {}", info);
+        log.info("-------------------------------------headers {}", headers);
+    }
+
 }
